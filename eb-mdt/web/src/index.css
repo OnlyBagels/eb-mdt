@@ -1,0 +1,304 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset styles for NUI */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrollbars on the game */
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: transparent;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden; /* Ensure no overflow from root */
+}
+
+/* Custom scrollbar styling - ProfilesPage style */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1b1e;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+  border: 1px solid #374151;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Hide scrollbars by default */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Text clamp utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Custom components - ProfilesPage inspired design */
+@layer components {
+  .mdt-card {
+    @apply bg-mdt-card border border-mdt-border rounded-lg shadow-lg;
+  }
+
+  .mdt-button {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 ease-in-out;
+  }
+
+  .mdt-button-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+
+  .mdt-button-secondary {
+    @apply bg-mdt-accent hover:bg-primary-600/20 text-white border border-mdt-border hover:border-primary-500 transform hover:-translate-y-0.5;
+  }
+
+  .mdt-input {
+    @apply bg-mdt-bg border border-mdt-border rounded-lg px-3 py-2 text-white placeholder-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:bg-mdt-bg transition-all duration-200;
+  }
+
+  .mdt-table {
+    @apply w-full border-collapse;
+  }
+
+  .mdt-table th {
+    @apply bg-mdt-accent text-white font-semibold text-sm px-4 py-3 border-b border-mdt-border text-left;
+  }
+
+  .mdt-table td {
+    @apply px-4 py-3 border-b border-mdt-border text-white;
+  }
+
+  .mdt-table tbody tr {
+    @apply hover:bg-primary-600/10 transition-colors duration-150 cursor-pointer;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-primary {
+    @apply bg-primary-600 text-white;
+  }
+
+  .badge-success {
+    @apply bg-green-500 text-white;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-500 text-black;
+  }
+
+  .badge-danger {
+    @apply bg-red-500 text-white;
+  }
+
+  .badge-secondary {
+    @apply bg-gray-500 text-white;
+  }
+
+  .badge-outline {
+    @apply border border-mdt-border text-white bg-transparent;
+  }
+
+  /* ProfilesPage-style sections */
+  .profile-section {
+    @apply bg-mdt-accent p-4 rounded-lg;
+  }
+
+  .profile-section h4 {
+    @apply text-sm font-medium mb-3 text-white;
+  }
+
+  .profile-row {
+    @apply flex justify-between py-2 border-b border-mdt-border last:border-b-0;
+  }
+
+  .profile-label {
+    @apply text-sm text-primary-200;
+  }
+
+  .profile-value {
+    @apply text-sm font-medium text-white;
+  }
+
+  /* Form controls matching ProfilesPage */
+  .form-section {
+    @apply bg-mdt-accent p-4 rounded-lg;
+  }
+
+  .form-section h4 {
+    @apply text-sm font-medium mb-4 text-white;
+  }
+
+  .form-row {
+    @apply flex justify-between py-2 border-b border-mdt-border items-center;
+  }
+
+  .form-label {
+    @apply text-sm text-primary-200 flex items-center gap-2 min-w-0 flex-shrink-0;
+  }
+
+  .form-input-container {
+    @apply flex-1 ml-4;
+  }
+
+  /* Enhanced hover effects */
+  .hover-lift {
+    @apply transition-all duration-150 hover:border-primary-500 hover:-translate-y-0.5;
+  }
+
+  /* Card container for evidence items, etc */
+  .item-card {
+    @apply bg-mdt-accent border border-mdt-border rounded-lg p-3 text-center transition-all duration-200 hover:border-primary-500 hover:-translate-y-1 cursor-pointer;
+  }
+
+  /* Modal styling matching ProfilesPage */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50;
+  }
+
+  .modal-container {
+    @apply bg-mdt-card rounded-lg border border-mdt-border w-full mx-4;
+  }
+
+  .modal-header {
+    @apply p-4 border-b border-mdt-border;
+  }
+
+  .modal-content {
+    @apply p-4;
+  }
+
+  .modal-footer {
+    @apply p-4 border-t border-mdt-border flex justify-end gap-3;
+  }
+
+  /* Info cards for stats, biometric data, etc */
+  .info-card {
+    @apply flex items-center gap-2 p-2 bg-mdt-bg rounded text-xs;
+  }
+
+  .info-icon {
+    @apply text-primary-400;
+  }
+
+  .info-label {
+    @apply text-primary-200;
+  }
+
+  .info-value {
+    @apply font-medium text-white;
+  }
+
+  /* Grid layouts for data display */
+  .data-grid {
+    @apply grid gap-3;
+  }
+
+  .data-grid-3 {
+    @apply grid-cols-3;
+  }
+
+  .data-grid-4 {
+    @apply grid-cols-4;
+  }
+
+  .data-grid-5 {
+    @apply grid-cols-5;
+  }
+
+  .data-grid-6 {
+    @apply grid-cols-6;
+  }
+
+  /* Enhanced checkbox and radio styling */
+  input[type="checkbox"],
+  input[type="radio"] {
+    @apply w-4 h-4 text-primary-600 bg-mdt-bg border-mdt-border rounded focus:ring-primary-500 focus:ring-2;
+  }
+
+  /* Text area styling */
+  textarea.mdt-input {
+    @apply resize-none;
+  }
+
+  /* Select styling */
+  select.mdt-input {
+    @apply cursor-pointer;
+  }
+
+  /* Loading spinner */
+  .loading-spinner {
+    @apply animate-spin rounded-full h-8 w-8 border-b-2 border-primary-500;
+  }
+
+  /* Success/error states */
+  .success-text {
+    @apply text-green-400;
+  }
+
+  .error-text {
+    @apply text-red-400;
+  }
+
+  .warning-text {
+    @apply text-yellow-400;
+  }
+
+  /* Empty state styling */
+  .empty-state {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  .empty-state-icon {
+    @apply text-4xl text-primary-200 mb-4;
+  }
+
+  .empty-state-title {
+    @apply text-lg font-medium text-white mb-2;
+  }
+
+  .empty-state-description {
+    @apply text-sm text-primary-200 text-center max-w-md;
+  }
+}
