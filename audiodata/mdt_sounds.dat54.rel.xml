@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dat54>
+    <Version value="7314721" />
+    <ContainerPaths>
+        <Item>audiodirectory\mdt_sounds</Item>
+    </ContainerPaths>
+    <Items>
+        <!-- SimpleSounds -->
+        <Item type="SimpleSound">
+            <Name>notification_sp</Name>
+            <Header>
+                <Flags value="0x00008004" />
+                <Volume value="200" />
+                <Category>scripted</Category>
+            </Header>
+            <ContainerName>audiodirectory/mdt_sounds</ContainerName>
+            <FileName>notification</FileName>
+            <WaveSlotNum value="0" />
+        </Item>
+        <Item type="SimpleSound">
+            <Name>panic_sound_sp</Name>
+            <Header>
+                <Flags value="0x00008004" />
+                <Volume value="200" />
+                <Category>scripted</Category>
+            </Header>
+            <ContainerName>audiodirectory/mdt_sounds</ContainerName>
+            <FileName>panic_sound</FileName>
+            <WaveSlotNum value="0" />
+        </Item>
+
+        <!-- SoundSet -->
+        <Item type="SoundSet">
+            <Name>mdt_soundset</Name>
+            <Header>
+                <Flags value="0xAAAAAAAA" />
+            </Header>
+            <SoundSets>
+                <Item>
+                    <ScriptName>notification</ScriptName>
+                    <ChildSound>notification_sp</ChildSound>
+                </Item>
+                <Item>
+                    <ScriptName>panic_sound</ScriptName>
+                    <ChildSound>panic_sound_sp</ChildSound>
+                </Item>
+            </SoundSets>
+        </Item>
+    </Items>
+</Dat54>

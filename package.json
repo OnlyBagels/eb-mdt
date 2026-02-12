@@ -1,0 +1,45 @@
+{
+	"name": "eb-mdt-sqlite",
+	"author": "Bagelbites99",
+	"version": "2.1.42",
+	"license": "MIT",
+	"description": "TypeScript MDT for QBX/FiveM with Svelte UI - SQLite Edition",
+	"type": "module",
+	"scripts": {
+		"web:dev": "cd web && vite dev",
+		"build": "node scripts/build.js",
+		"build:web": "cd web && vite build",
+		"watch": "node scripts/build.js --watch",
+		"format": "pnpm biome format --write",
+		"lint": "pnpm biome lint --write"
+	},
+	"keywords": [
+		"fivem",
+		"mdt",
+		"qbx"
+	],
+	"devDependencies": {
+		"@citizenfx/client": "latest",
+		"@citizenfx/server": "latest",
+		"@jgoz/esbuild-plugin-typecheck": "^4.0.3",
+		"@communityox/fx-utils": "^0.0.4",
+		"@types/node": "^22.13.9",
+		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"@tsconfig/svelte": "^5.0.4",
+		"esbuild": "^0.25.0",
+		"typescript": "^5.8.2",
+		"vite": "^6.0.0",
+		"svelte": "^5.0.0",
+		"svelte-check": "^4.1.0",
+		"tailwindcss": "^3.4.1",
+		"postcss": "^8.4.49",
+		"autoprefixer": "^10.4.20"
+	},
+	"dependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@nativewrappers/fivem": "latest",
+		"@communityox/ox_lib": "latest",
+		"@communityox/oxmysql": "latest",
+		"@fortawesome/fontawesome-free": "^6.5.0"
+	}
+}
